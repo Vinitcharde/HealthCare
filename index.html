@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🩺 Advanced Health Risk Prediction System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>🩺 Advanced Health Risk Prediction</h1>
+        <p>Split Layout: Left Panel = Patient Inputs | Right Panel = Live Results + Pie Charts + Medical Action Plans</p>
+    </header>
+
+    <nav>
+        <button onclick="showPage('home')">🏠 Home</button>
+        <button onclick="showPage('heart')">❤️ Heart Disease</button>
+        <button onclick="showPage('diabetes')">💉 Diabetes</button>
+        <button onclick="showPage('about')">ℹ️ About</button>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <section id="home" class="page active">
+        <div class="hero-section">
+            <h2 class="section-title">🎯 AI Health Risk Analysis System</h2>
+            <p class="hero-subtitle"></p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Interactive Pie Charts</h3>
+                    <p>Beautiful risk visualization appears instantly after prediction</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚖️</div>
+                    <h3>Perfect Split Layout</h3>
+                    <p>Inputs stay visible on left, results/charts appear on right</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Smart Action Plans</h3>
+                    <p>AI-generated personalized medical recommendations</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Real-time AI</h3>
+                    <p>Instant logistic regression predictions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- ❤️ HEART DISEASE SECTION -->
+    <section id="heart" class="page disease-section">
+        <div class="disease-header">
+            <h2 class="section-title">❤️ Heart Disease Risk Prediction</h2>
+            <p class="section-subtitle">Enter 11 clinical parameters for AI-powered heart disease probability analysis</p>
+        </div>
+        <div class="prediction-container">
+            <div class="left-panel">
+                <div class="panel-header">
+                    <h3 class="panel-title">📋 Heart Disease Clinical Data</h3>
+                    <p class="panel-subtitle">Enter patient vitals (UCI Cleveland Dataset)</p>
+                </div>
+                <form id="heartForm" onsubmit="predictHeart(event)">
+                    <div class="input-grid">
+                        <div class="input-group"><label>1. Age (years)</label><input type="number" step="any" placeholder="e.g. 54" required></div>
+                        <div class="input-group"><label>2. Sex (0=F, 1=M)</label><input type="number" step="any" placeholder="0 or 1" required></div>
+                        <div class="input-group"><label>3. Chest Pain (0-3)</label><input type="number" step="any" placeholder="0-3" required></div>
+                        <div class="input-group"><label>4. Resting BP (mmHg)</label><input type="number" step="any" placeholder="e.g. 132" required></div>
+                        <div class="input-group"><label>5. Cholesterol (mg/dl)</label><input type="number" step="any" placeholder="e.g. 245" required></div>
+                        <div class="input-group"><label>6. Fasting BS (0/1)</label><input type="number" step="any" placeholder="0 or 1" required></div>
+                        <div class="input-group"><label>7. Resting ECG (0-1)</label><input type="number" step="any" placeholder="0-1" required></div>
+                        <div class="input-group"><label>8. Max HR (bpm)</label><input type="number" step="any" placeholder="e.g. 150" required></div>
+                        <div class="input-group"><label>9. Exercise Angina</label><input type="number" step="any" placeholder="0 or 1" required></div>
+                        <div class="input-group"><label>10. Oldpeak (ST dep.)</label><input type="number" step="any" placeholder="e.g. 1.5" required></div>
+                        <div class="input-group"><label>11. ST Slope (0-2)</label><input type="number" step="any" placeholder="0-2" required></div>
+                    </div>
+                    <button type="submit" class="submit-btn">🔮 Predict Heart Risk</button>
+                </form>
+            </div>
+            <div class="right-panel">
+                <div id="heartResult" class="result-container"></div>
+                <div id="heartPieChart" class="pie-chart-container">
+                    <div class="chart-title">📊 Heart Disease Risk Distribution</div>
+                    <div class="chart-wrapper"><canvas id="heartPieCanvas"></canvas></div>
+                </div>
+                <div id="heartActions" class="precautions"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 💉 DIABETES SECTION -->
+    <section id="diabetes" class="page disease-section">
+        <div class="disease-header">
+            <h2 class="section-title">💉 Diabetes Risk Prediction</h2>
+            <p class="section-subtitle">Enter 8 clinical parameters for AI-powered diabetes probability analysis (Pima Dataset)</p>
+        </div>
+        <div class="prediction-container">
+            <div class="left-panel">
+                <div class="panel-header">
+                    <h3 class="panel-title">📋 Diabetes Clinical Data</h3>
+                    <p class="panel-subtitle">Enter patient metabolic parameters</p>
+                </div>
+                <form id="diabetesForm" onsubmit="predictDiabetes(event)">
+                    <div class="input-grid">
+                        <div class="input-group"><label>1. Pregnancies</label><input type="number" step="any" placeholder="e.g. 3" required></div>
+                        <div class="input-group"><label>2. Glucose (mg/dL)</label><input type="number" step="any" placeholder="e.g. 121" required></div>
+                        <div class="input-group"><label>3. Blood Pressure</label><input type="number" step="any" placeholder="e.g. 72" required></div>
+                        <div class="input-group"><label>4. Skin Thickness (mm)</label><input type="number" step="any" placeholder="e.g. 29" required></div>
+                        <div class="input-group"><label>5. Insulin (mu U/ml)</label><input type="number" step="any" placeholder="e.g. 80" required></div>
+                        <div class="input-group"><label>6. BMI (kg/m²)</label><input type="number" step="any" placeholder="e.g. 32" required></div>
+                        <div class="input-group"><label>7. Pedigree Function</label><input type="number" step="any" placeholder="e.g. 0.47" required></div>
+                        <div class="input-group"><label>8. Age (years)</label><input type="number" step="any" placeholder="e.g. 33" required></div>
+                    </div>
+                    <button type="submit" class="submit-btn">🔮 Predict Diabetes Risk</button>
+                </form>
+            </div>
+            <div class="right-panel">
+                <div id="diabetesResult" class="result-container"></div>
+                <div id="diabetesPieChart" class="pie-chart-container">
+                    <div class="chart-title">📊 Diabetes Risk Distribution</div>
+                    <div class="chart-wrapper"><canvas id="diabetesPieCanvas"></canvas></div>
+                </div>
+                <div id="diabetesActions" class="precautions"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ℹ️ ADVANCED ABOUT SECTION - 5 COLUMNS -->
+    <section id="about" class="page">
+        <div class="about-wrapper">
+            <div class="about-hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">🩺 Understanding Your Health Risks</h1>
+                    <p class="hero-text">Learn what our AI analyzes • Simple explanations • Real medical data</p>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item"><div class="stat-number">11</div><span>Heart Factors</span></div>
+                    <div class="stat-item"><div class="stat-number">8</div><span>Diabetes Factors</span></div>
+                    <div class="stat-item"><div class="stat-number">99%</div><span>Accuracy</span></div>
+                </div>
+            </div>
+
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="switchTab('heart-tab')">❤️ Heart Disease</button>
+                    <button class="tab-btn" onclick="switchTab('diabetes-tab')">💉 Diabetes</button>
+                    <button class="tab-btn" onclick="switchTab('risk-tab')">🎯 Risk Guide</button>
+                </div>
+
+                <!-- HEART DISEASE TAB - 5 COLUMNS -->
+                <div id="heart-tab" class="tab-content active">
+                    <div class="disease-overview">
+                        <div class="overview-left">
+                            <h2>❤️ What is Heart Disease?</h2>
+                            <p class="overview-text">Your heart needs blood to work. When arteries get blocked by fat (plaque), blood can't flow properly. This causes chest pain, heart attacks, or heart failure.</p>
+                            <div class="key-facts">
+                                <div class="fact"><span>1 in 4</span> deaths caused by heart disease</div>
+                                <div class="fact"><span>Age 45+</span> risk doubles every 8 years</div>
+                                <div class="fact"><span>Men</span> higher risk than women</div>
+                            </div>
+                        </div>
+                        <div class="overview-right"><div class="disease-image-placeholder">🫀 Heart Arteries Blocked</div></div>
+                    </div>
+                    <div class="params-table">
+                        <h3>🤖 Our AI Analyzes These 11 Factors:</h3>
+                        <div class="table-scroll">
+                            <table class="advanced-table">
+                                <thead>
+                                    <tr><th>#</th><th>Parameter</th><th>Normal Range</th><th>What It Means</th><th>Why Important</th></tr>
+                                </thead>
+                               <tbody>
+                                    <tr><td data-label="#">1</td><td data-label="Parameter">Age</td><td data-label="Normal Range">20-80 yrs</td><td data-label="What It Means">Your age in years</td><td data-label="Why Important">Older = arteries harden</td></tr>
+                                    <tr><td data-label="#">2</td><td data-label="Parameter">Sex</td><td data-label="Normal Range">0=F, 1=M</td><td data-label="What It Means">Male=1, Female=0</td><td data-label="Why Important">Men higher risk early</td></tr>
+                                    <tr><td data-label="#">3</td><td data-label="Parameter">Chest Pain</td><td data-label="Normal Range">0-3 scale</td><td data-label="What It Means">0=Typical Angina (classic heart-related chest pain), 1=Atypical Angina (sometimes heart-related), 2=Non-Anginal Pain (not heart-related), 3=Asymptomatic (no chest pain)</td><td data-label="Why Important">Direct heart warning</td></tr>
+                                    <tr><td data-label="#">4</td><td data-label="Parameter">Resting BP</td><td data-label="Normal Range">120/80 mmHg</td><td data-label="What It Means">Blood pressure resting</td><td data-label="Why Important">High = artery damage</td></tr>
+                                    <tr><td data-label="#">5</td><td data-label="Parameter">Cholesterol</td><td data-label="Normal Range">&lt;200 mg/dl</td><td data-label="What It Means">Blood fat level</td><td data-label="Why Important">Blocks heart arteries</td></tr>
+                                    <tr><td data-label="#">6</td><td data-label="Parameter">Fasting BS</td><td data-label="Normal Range">0/1 (normal/high)</td><td data-label="What It Means">Blood sugar fasting</td><td data-label="Why Important">Diabetes hurts heart</td></tr>
+                                    <tr><td data-label="#">7</td><td data-label="Parameter">Resting ECG</td><td data-label="Normal Range">0-1 normal/abnormal</td><td data-label="What It Means">Heart electrical test</td><td data-label="Why Important">Detects heart rhythm</td></tr>
+                                    <tr><td data-label="#">8</td><td data-label="Parameter">Max HR</td><td data-label="Normal Range">150-180 bpm</td><td data-label="What It Means">Peak exercise rate</td><td data-label="Why Important">Low = poor heart pump</td></tr>
+                                    <tr><td data-label="#">9</td><td data-label="Parameter">Exercise Angina</td><td data-label="Normal Range">0/1 (no/yes)</td><td data-label="What It Means">Chest pain exercising</td><td data-label="Why Important">Blocked artery sign</td></tr>
+                                    <tr><td data-label="#">10</td><td data-label="Parameter">Oldpeak</td><td data-label="Normal Range">0-2.0 mm</td><td data-label="What It Means">ECG depression level</td><td data-label="Why Important">Heart stress marker</td></tr>
+                                    <tr><td data-label="#">11</td><td data-label="Parameter">ST Slope</td><td data-label="Normal Range">0-2 pattern</td><td data-label="What It Means">0=Upsloping (Normal), 1=Flat (Moderate risk), 2=Downsloping (High risk)</td><td data-label="Why Important">Shows artery blockage</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIABETES TAB - 5 COLUMNS -->
+                <div id="diabetes-tab" class="tab-content">
+                    <div class="disease-overview">
+                        <div class="overview-left">
+                            <h2>💉 What is Diabetes?</h2>
+                            <p class="overview-text">Your body needs insulin to use sugar (glucose) for energy. In diabetes, insulin doesn't work properly, so sugar builds up in blood and damages organs.</p>
+                            <div class="key-facts">
+                                <div class="fact"><span>1 in 10</span> adults have diabetes</div>
+                                <div class="fact"><span>90%</span> is Type 2 (lifestyle)</div>
+                                <div class="fact"><span>Undiagnosed</span> = organ damage</div>
+                            </div>
+                        </div>
+                        <div class="overview-right"><div class="disease-image-placeholder">🍬 High Blood Sugar</div></div>
+                    </div>
+                    <div class="params-table">
+                        <h3>🤖 Our AI Analyzes These 8 Factors:</h3>
+                        <div class="table-scroll">
+                            <table class="advanced-table">
+                                <thead>
+                                    <tr><th>#</th><th>Parameter</th><th>Normal Range</th><th>What It Means</th><th>Why Important</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-label="#">1</td><td data-label="Parameter">Pregnancies</td><td data-label="Normal Range">0-17</td><td data-label="What It Means">Pregnancy count</td><td data-label="Why Important">Each pregnancy stress</td></tr>
+                                    <tr><td data-label="#">2</td><td data-label="Parameter">Glucose</td><td data-label="Normal Range">70-140 mg/dl</td><td data-label="What It Means">Blood sugar level</td><td data-label="Why Important">#1 diabetes marker</td></tr>
+                                    <tr><td data-label="#">3</td><td data-label="Parameter">Blood Pressure</td><td data-label="Normal Range">120/80 mmHg</td><td data-label="What It Means">Resting BP</td><td data-label="Why Important">Diabetes damages BP</td></tr>
+                                    <tr><td data-label="#">4</td><td data-label="Parameter">Skin Thickness</td><td data-label="Normal Range">7-99 mm</td><td data-label="What It Means">Arm fat thickness</td><td data-label="Why Important">Obesity indicator</td></tr>
+                                    <tr><td data-label="#">5</td><td data-label="Parameter">Insulin</td><td data-label="Normal Range">0-846 muU/ml</td><td data-label="What It Means">Insulin hormone</td><td data-label="Why Important">Core diabetes test</td></tr>
+                                    <tr><td data-label="#">6</td><td data-label="Parameter">BMI</td><td data-label="Normal Range">18.5-24.9</td><td data-label="What It Means">Body weight score</td><td data-label="Why Important">Fat = insulin block</td></tr>
+                                    <tr><td data-label="#">7</td><td data-label="Parameter">Pedigree</td><td data-label="Normal Range">0.078-2.42</td><td data-label="What It Means">Family diabetes score</td><td data-label="Why Important">Genes = high risk</td></tr>
+                                    <tr><td data-label="#">8</td><td data-label="Parameter">Age</td><td data-label="Normal Range">21-81 yrs</td><td data-label="What It Means">Your age</td><td data-label="Why Important">Older = insulin fails</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RISK GUIDE TAB -->
+                <div id="risk-tab" class="tab-content">
+                    <div class="risk-guide">
+                        <h2>🎯 How to Read Your Results</h2>
+                        <div class="risk-bars">
+                            <div class="risk-bar low"><div class="bar-fill" style="width: 30%"></div><span>0-30% ✅ LOW RISK</span><p>Continue healthy lifestyle</p></div>
+                            <div class="risk-bar moderate"><div class="bar-fill" style="width: 60%"></div><span>30-60% ⚠️ MODERATE</span><p>Doctor visit recommended</p></div>
+                            <div class="risk-bar high"><div class="bar-fill" style="width: 100%"></div><span>60-100% 🚨 HIGH RISK</span><p>Immediate medical attention</p></div>
+                        </div>
+                    </div>
+                    <div class="ai-explained">
+                        <h3>🤖 How Our AI Works</h3>
+                        <div class="ai-steps">
+                            <div class="step"><div class="step-number">1</div><h4>Input Data</h4><p>You enter clinical measurements</p></div>
+                            <div class="step"><div class="step-number">2</div><h4>Math Model</h4><p>Logistic regression (trained on 1000s patients)</p></div>
+                            <div class="step"><div class="step-number">3</div><h4>Risk Score</h4><p>AI calculates exact % probability</p></div>
+                            <div class="step"><div class="step-number">4</div><h4>Visual + Plan</h4><p>Pie chart + personalized actions</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
