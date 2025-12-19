@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,17 +62,27 @@
                 </div>
                 <form id="heartForm" onsubmit="predictHeart(event)">
                     <div class="input-grid">
-                        <div class="input-group"><label>Age</label><input type="number" name="age" required></div>
-                        <div class="input-group"><label>Sex (0=F,1=M)</label><input type="number" name="sex" required></div>
-                        <div class="input-group"><label>Chest Pain (0-3)</label><input type="number" name="cp" required></div>
-                        <div class="input-group"><label>Resting BP</label><input type="number" name="trestbps" required></div>
-                        <div class="input-group"><label>Cholesterol</label><input type="number" name="chol" required></div>
-                        <div class="input-group"><label>Fasting BS</label><input type="number" name="fbs" required></div>
-                        <div class="input-group"><label>Resting ECG</label><input type="number" name="restecg" required></div>
-                        <div class="input-group"><label>Max HR</label><input type="number" name="thalach" required></div>
-                        <div class="input-group"><label>Exercise Angina</label><input type="number" name="exang" required></div>
-                        <div class="input-group"><label>Oldpeak</label><input type="number" step="0.1" name="oldpeak" required></div>
-                        <div class="input-group"><label>ST Slope</label><input type="number" name="slope" required></div>
+                        <div class="input-group"><label>Age</label><input type="number" name="age"placeholder="e.g. 54" required></div>
+                        <div class="input-group"><label>Sex (0=F,1=M)</label><input type="number" name="sex" placeholder="0 or 1" required>
+                        </div>
+                        <div class="input-group"><label>Chest Pain (0-3)</label><input type="number" name="cp" placeholder="0-3" required>
+                        </div>
+                        <div class="input-group"><label>Resting BP</label><input type="number" name="trestbps" placeholder="e.g. 132" required>
+                        </div>
+                        <div class="input-group"><label>Cholesterol</label><input type="number" name="chol"  placeholder="e.g. 245" required>
+                        </div>
+                        <div class="input-group"><label>Fasting BS</label><input type="number" name="fbs" placeholder="0 or 1" required>
+                        </div>
+                        <div class="input-group"><label>Resting ECG</label><input type="number" name="restecg" placeholder="0-1" required>
+                        </div>
+                        <div class="input-group"><label>Max HR</label><input type="number" name="thalach" placeholder="e.g. 150"  required>
+                        </div>
+                        <div class="input-group"><label>Exercise Angina</label><input type="number" name="exang" placeholder="0 or 1"
+                                required></div>
+                        <div class="input-group"><label>Oldpeak</label><input type="number" step="0.1" name="oldpeak" placeholder="e.g. 1.5"
+                                required></div>
+                        <div class="input-group"><label>ST Slope</label><input type="number" name="slope" placeholder="0-2" required>
+                        </div>
                     </div>
                     <button type="submit" class="submit-btn">🔮 Predict Risk</button>
                 </form>
@@ -100,14 +111,21 @@
                 </div>
                 <form id="diabetesForm" onsubmit="predictDiabetes(event)">
                     <div class="input-grid">
-                        <div class="input-group"><label>Pregnancies</label><input type="number" name="pregnancies" required></div>
-                        <div class="input-group"><label>Glucose</label><input type="number" name="glucose" required></div>
-                        <div class="input-group"><label>Blood Pressure</label><input type="number" name="bp" required></div>
-                        <div class="input-group"><label>Skin Thickness</label><input type="number" name="skin" required></div>
-                        <div class="input-group"><label>Insulin</label><input type="number" name="insulin" required></div>
-                        <div class="input-group"><label>BMI</label><input type="number" step="0.1" name="bmi" required></div>
-                        <div class="input-group"><label>Pedigree</label><input type="number" step="0.01" name="pedigree" required></div>
-                        <div class="input-group"><label>Age</label><input type="number" name="age" required></div>
+                        <div class="input-group"><label>Pregnancies</label><input type="number" name="pregnancies" placeholder="e.g. 3"
+                                required></div>
+                        <div class="input-group"><label>Glucose</label><input type="number" name="glucose" placeholder="e.g. 121" required>
+                        </div>
+                        <div class="input-group"><label>Blood Pressure</label><input type="number" name="bp" placeholder="e.g. 72" required>
+                        </div>
+                        <div class="input-group"><label>Skin Thickness</label><input type="number" name="skin" placeholder="e.g. 29" required>
+                        </div>
+                        <div class="input-group"><label>Insulin</label><input type="number" name="insulin" placeholder="e.g. 80" required>
+                        </div>
+                        <div class="input-group"><label>BMI</label><input type="number" step="0.1" name="bmi" placeholder="e.g. 32" required>
+                        </div>
+                        <div class="input-group"><label>Pedigree</label><input type="number" step="0.01" name="pedigree" placeholder="e.g. 0.47"
+                                required></div>
+                        <div class="input-group"><label>Age</label><input type="number" name="age" placeholder="e.g. 33" required></div>
                     </div>
                     <button type="submit" class="submit-btn">🔮 Predict Risk</button>
                 </form>
@@ -127,7 +145,7 @@
     <section id="diet" class="page">
         <div class="diet-section">
             <h1 class="diet-title">🇮🇳 Indian Heart Diet Chart</h1>
-            
+
             <div class="crisis-stats">
                 <div class="stat-card">
                     <span class="stat-number">33%</span>
@@ -216,10 +234,27 @@
             <div class="content-section">
                 <h2 class="section-header">📋 Daily Diet Chart</h2>
                 <table class="diet-table">
-                    <tr><th>Time</th><th>Vegetarian</th><th>Non-Veg</th></tr>
-                    <tr><td>Breakfast</td><td>2 idlis + chutney</td><td>2 eggs + toast</td></tr>
-                    <tr><td>Lunch</td><td>Brown rice + dal</td><td>Grilled fish</td></tr>
-                    <tr><td>Dinner</td><td>2 ragi rotis</td><td>Grilled chicken</td></tr>
+                    <tr>
+                        <th>Time</th>
+                        <th>Vegetarian</th>
+                        <th>Non-Veg</th>
+                    </tr>
+                    <tr>
+                        <td>Breakfast(8–9 am)</td>
+                        <td>2 idlis + chutney(1 bowl of vegetable oats upma (cooked in 1 tsp cold-pressed oil))</td>
+                        <td>2 eggs + toast(1 Ragi Dosa with Chicken Gravy, prepared with minimal oil)</td>
+                    </tr>
+                    <tr>
+                        <td>Lunch</td>
+                        <td>Brown rice + dal(Beans poriyal, cucumber raita
+                            Low-fat curd (plain or with cucumber))</td>
+                        <td>Grilled fish(Steamed broccoli or carrot side)</td>
+                    </tr>
+                    <tr>
+                        <td>Dinner</td>
+                        <td>2 ragi rotis(Kootu (dal + vegetable curry))</td>
+                        <td>Grilled chicken breast (100–120g, skinless)</td>
+                    </tr>
                 </table>
             </div>
 
@@ -231,7 +266,7 @@
     </section>
 
     <!-- ABOUT -->
-       <!-- ℹ️ ADVANCED ABOUT SECTION - 5 COLUMNS -->
+    <!-- ℹ️ ADVANCED ABOUT SECTION - 5 COLUMNS -->
     <section id="about" class="page">
         <div class="about-wrapper">
             <div class="about-hero">
@@ -240,9 +275,15 @@
                     <p class="hero-text">Learn what our AI analyzes • Simple explanations • Real medical data</p>
                 </div>
                 <div class="hero-stats">
-                    <div class="stat-item"><div class="stat-number">11</div><span>Heart Factors</span></div>
-                    <div class="stat-item"><div class="stat-number">8</div><span>Diabetes Factors</span></div>
-                    <div class="stat-item"><div class="stat-number">99%</div><span>Accuracy</span></div>
+                    <div class="stat-item">
+                        <div class="stat-number">11</div><span>Heart Factors</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8</div><span>Diabetes Factors</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">99%</div><span>Accuracy</span>
+                    </div>
                 </div>
             </div>
 
@@ -258,34 +299,110 @@
                     <div class="disease-overview">
                         <div class="overview-left">
                             <h2>❤️ What is Heart Disease?</h2>
-                            <p class="overview-text">Your heart needs blood to work. When arteries get blocked by fat (plaque), blood can't flow properly. This causes chest pain, heart attacks, or heart failure.</p>
+                            <p class="overview-text">Your heart needs blood to work. When arteries get blocked by fat
+                                (plaque), blood can't flow properly. This causes chest pain, heart attacks, or heart
+                                failure.</p>
                             <div class="key-facts">
                                 <div class="fact"><span>1 in 4</span> deaths caused by heart disease</div>
                                 <div class="fact"><span>Age 45+</span> risk doubles every 8 years</div>
                                 <div class="fact"><span>Men</span> higher risk than women</div>
                             </div>
                         </div>
-                        <div class="overview-right"><div class="disease-image-placeholder">🫀 Heart Arteries Blocked</div></div>
+                        <div class="overview-right">
+                            <div class="disease-image-placeholder">🫀 Heart Arteries Blocked</div>
+                        </div>
                     </div>
                     <div class="params-table">
                         <h3>🤖 Our AI Analyzes These 11 Factors:</h3>
                         <div class="table-scroll">
                             <table class="advanced-table">
                                 <thead>
-                                    <tr><th>#</th><th>Parameter</th><th>Normal Range</th><th>What It Means</th><th>Why Important</th></tr>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Parameter</th>
+                                        <th>Normal Range</th>
+                                        <th>What It Means</th>
+                                        <th>Why Important</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td data-label="#">1</td><td data-label="Parameter">Age</td><td data-label="Normal Range">20-80 yrs</td><td data-label="What It Means">Your age in years</td><td data-label="Why Important">Older = arteries harden</td></tr>
-                                    <tr><td data-label="#">2</td><td data-label="Parameter">Sex</td><td data-label="Normal Range">0=F, 1=M</td><td data-label="What It Means">Male=1, Female=0</td><td data-label="Why Important">Men higher risk early</td></tr>
-                                    <tr><td data-label="#">3</td><td data-label="Parameter">Chest Pain</td><td data-label="Normal Range">0-3 scale</td><td data-label="What It Means">0=no pain, 3=severe</td><td data-label="Why Important">Direct heart warning</td></tr>
-                                    <tr><td data-label="#">4</td><td data-label="Parameter">Resting BP</td><td data-label="Normal Range">120/80 mmHg</td><td data-label="What It Means">Blood pressure resting</td><td data-label="Why Important">High = artery damage</td></tr>
-                                    <tr><td data-label="#">5</td><td data-label="Parameter">Cholesterol</td><td data-label="Normal Range">&lt;200 mg/dl</td><td data-label="What It Means">Blood fat level</td><td data-label="Why Important">Blocks heart arteries</td></tr>
-                                    <tr><td data-label="#">6</td><td data-label="Parameter">Fasting BS</td><td data-label="Normal Range">0/1 (normal/high)</td><td data-label="What It Means">Blood sugar fasting</td><td data-label="Why Important">Diabetes hurts heart</td></tr>
-                                    <tr><td data-label="#">7</td><td data-label="Parameter">Resting ECG</td><td data-label="Normal Range">0-1 normal/abnormal</td><td data-label="What It Means">Heart electrical test</td><td data-label="Why Important">Detects heart rhythm</td></tr>
-                                    <tr><td data-label="#">8</td><td data-label="Parameter">Max HR</td><td data-label="Normal Range">150-180 bpm</td><td data-label="What It Means">Peak exercise rate</td><td data-label="Why Important">Low = poor heart pump</td></tr>
-                                    <tr><td data-label="#">9</td><td data-label="Parameter">Exercise Angina</td><td data-label="Normal Range">0/1 (no/yes)</td><td data-label="What It Means">Chest pain exercising</td><td data-label="Why Important">Blocked artery sign</td></tr>
-                                    <tr><td data-label="#">10</td><td data-label="Parameter">Oldpeak</td><td data-label="Normal Range">0-2.0 mm</td><td data-label="What It Means">ECG depression level</td><td data-label="Why Important">Heart stress marker</td></tr>
-                                    <tr><td data-label="#">11</td><td data-label="Parameter">ST Slope</td><td data-label="Normal Range">0-2 pattern</td><td data-label="What It Means">ECG wave shape</td><td data-label="Why Important">Shows artery blockage</td></tr>
+                                    <tr>
+                                        <td data-label="#">1</td>
+                                        <td data-label="Parameter">Age</td>
+                                        <td data-label="Normal Range">20-80 yrs</td>
+                                        <td data-label="What It Means">Your age in years</td>
+                                        <td data-label="Why Important">Older = arteries harden</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="#">2</td>
+                                        <td data-label="Parameter">Sex</td>
+                                        <td data-label="Normal Range">0=F, 1=M</td>
+                                        <td data-label="What It Means">Male=1, Female=0</td>
+                                        <td data-label="Why Important">Men higher risk early</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="#">3</td>
+                                        <td data-label="Parameter">Chest Pain</td>
+                                        <td data-label="Normal Range">0-3 scale</td>
+                                        <td data-label="What It Means">0=no pain, 3=severe</td>
+                                        <td data-label="Why Important">Direct heart warning</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="#">4</td>
+                                        <td data-label="Parameter">Resting BP</td>
+                                        <td data-label="Normal Range">120/80 mmHg</td>
+                                        <td data-label="What It Means">Blood pressure resting</td>
+                                        <td data-label="Why Important">High = artery damage</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="#">5</td>
+                                        <td data-label="Parameter">Cholesterol</td>
+                                        <td data-label="Normal Range">&lt;200 mg/dl</td>
+                                        <td data-label="What It Means">Blood fat level</td>
+                                        <td data-label="Why Important">Blocks heart arteries</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="#">6</td>
+                                        <td data-label="Parameter">Fasting BS</td>
+                                        <td data-label="Normal Range">0/1 (normal/high)</td>
+                                        <td data-label="What It Means">Blood sugar fasting</td>
+                                        <td data-label="Why Important">Diabetes hurts heart</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="#">7</td>
+                                        <td data-label="Parameter">Resting ECG</td>
+                                        <td data-label="Normal Range">0-1 normal/abnormal</td>
+                                        <td data-label="What It Means">Heart electrical test</td>
+                                        <td data-label="Why Important">Detects heart rhythm</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="#">8</td>
+                                        <td data-label="Parameter">Max HR</td>
+                                        <td data-label="Normal Range">150-180 bpm</td>
+                                        <td data-label="What It Means">Peak exercise rate</td>
+                                        <td data-label="Why Important">Low = poor heart pump</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="#">9</td>
+                                        <td data-label="Parameter">Exercise Angina</td>
+                                        <td data-label="Normal Range">0/1 (no/yes)</td>
+                                        <td data-label="What It Means">Chest pain exercising</td>
+                                        <td data-label="Why Important">Blocked artery sign</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="#">10</td>
+                                        <td data-label="Parameter">Oldpeak</td>
+                                        <td data-label="Normal Range">0-2.0 mm</td>
+                                        <td data-label="What It Means">ECG depression level</td>
+                                        <td data-label="Why Important">Heart stress marker</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="#">11</td>
+                                        <td data-label="Parameter">ST Slope</td>
+                                        <td data-label="Normal Range">0-2 pattern</td>
+                                        <td data-label="What It Means">ECG wave shape</td>
+                                        <td data-label="Why Important">Shows artery blockage</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -297,31 +414,89 @@
                     <div class="disease-overview">
                         <div class="overview-left">
                             <h2>💉 What is Diabetes?</h2>
-                            <p class="overview-text">Your body needs insulin to use sugar (glucose) for energy. In diabetes, insulin doesn't work properly, so sugar builds up in blood and damages organs.</p>
+                            <p class="overview-text">Your body needs insulin to use sugar (glucose) for energy. In
+                                diabetes, insulin doesn't work properly, so sugar builds up in blood and damages organs.
+                            </p>
                             <div class="key-facts">
                                 <div class="fact"><span>1 in 10</span> adults have diabetes</div>
                                 <div class="fact"><span>90%</span> is Type 2 (lifestyle)</div>
                                 <div class="fact"><span>Undiagnosed</span> = organ damage</div>
                             </div>
                         </div>
-                        <div class="overview-right"><div class="disease-image-placeholder">🍬 High Blood Sugar</div></div>
+                        <div class="overview-right">
+                            <div class="disease-image-placeholder">🍬 High Blood Sugar</div>
+                        </div>
                     </div>
                     <div class="params-table">
                         <h3>🤖 Our AI Analyzes These 8 Factors:</h3>
                         <div class="table-scroll">
                             <table class="advanced-table">
                                 <thead>
-                                    <tr><th>#</th><th>Parameter</th><th>Normal Range</th><th>What It Means</th><th>Why Important</th></tr>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Parameter</th>
+                                        <th>Normal Range</th>
+                                        <th>What It Means</th>
+                                        <th>Why Important</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td data-label="#">1</td><td data-label="Parameter">Pregnancies</td><td data-label="Normal Range">0-17</td><td data-label="What It Means">Pregnancy count</td><td data-label="Why Important">Each pregnancy stress</td></tr>
-                                    <tr><td data-label="#">2</td><td data-label="Parameter">Glucose</td><td data-label="Normal Range">70-140 mg/dl</td><td data-label="What It Means">Blood sugar level</td><td data-label="Why Important">#1 diabetes marker</td></tr>
-                                    <tr><td data-label="#">3</td><td data-label="Parameter">Blood Pressure</td><td data-label="Normal Range">120/80 mmHg</td><td data-label="What It Means">Resting BP</td><td data-label="Why Important">Diabetes damages BP</td></tr>
-                                    <tr><td data-label="#">4</td><td data-label="Parameter">Skin Thickness</td><td data-label="Normal Range">7-99 mm</td><td data-label="What It Means">Arm fat thickness</td><td data-label="Why Important">Obesity indicator</td></tr>
-                                    <tr><td data-label="#">5</td><td data-label="Parameter">Insulin</td><td data-label="Normal Range">0-846 muU/ml</td><td data-label="What It Means">Insulin hormone</td><td data-label="Why Important">Core diabetes test</td></tr>
-                                    <tr><td data-label="#">6</td><td data-label="Parameter">BMI</td><td data-label="Normal Range">18.5-24.9</td><td data-label="What It Means">Body weight score</td><td data-label="Why Important">Fat = insulin block</td></tr>
-                                    <tr><td data-label="#">7</td><td data-label="Parameter">Pedigree</td><td data-label="Normal Range">0.078-2.42</td><td data-label="What It Means">Family diabetes score</td><td data-label="Why Important">Genes = high risk</td></tr>
-                                    <tr><td data-label="#">8</td><td data-label="Parameter">Age</td><td data-label="Normal Range">21-81 yrs</td><td data-label="What It Means">Your age</td><td data-label="Why Important">Older = insulin fails</td></tr>
+                                    <tr>
+                                        <td data-label="#">1</td>
+                                        <td data-label="Parameter">Pregnancies</td>
+                                        <td data-label="Normal Range">0-17</td>
+                                        <td data-label="What It Means">Pregnancy count</td>
+                                        <td data-label="Why Important">Each pregnancy stress</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="#">2</td>
+                                        <td data-label="Parameter">Glucose</td>
+                                        <td data-label="Normal Range">70-140 mg/dl</td>
+                                        <td data-label="What It Means">Blood sugar level</td>
+                                        <td data-label="Why Important">#1 diabetes marker</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="#">3</td>
+                                        <td data-label="Parameter">Blood Pressure</td>
+                                        <td data-label="Normal Range">120/80 mmHg</td>
+                                        <td data-label="What It Means">Resting BP</td>
+                                        <td data-label="Why Important">Diabetes damages BP</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="#">4</td>
+                                        <td data-label="Parameter">Skin Thickness</td>
+                                        <td data-label="Normal Range">7-99 mm</td>
+                                        <td data-label="What It Means">Arm fat thickness</td>
+                                        <td data-label="Why Important">Obesity indicator</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="#">5</td>
+                                        <td data-label="Parameter">Insulin</td>
+                                        <td data-label="Normal Range">0-846 muU/ml</td>
+                                        <td data-label="What It Means">Insulin hormone</td>
+                                        <td data-label="Why Important">Core diabetes test</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="#">6</td>
+                                        <td data-label="Parameter">BMI</td>
+                                        <td data-label="Normal Range">18.5-24.9</td>
+                                        <td data-label="What It Means">Body weight score</td>
+                                        <td data-label="Why Important">Fat = insulin block</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="#">7</td>
+                                        <td data-label="Parameter">Pedigree</td>
+                                        <td data-label="Normal Range">0.078-2.42</td>
+                                        <td data-label="What It Means">Family diabetes score</td>
+                                        <td data-label="Why Important">Genes = high risk</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="#">8</td>
+                                        <td data-label="Parameter">Age</td>
+                                        <td data-label="Normal Range">21-81 yrs</td>
+                                        <td data-label="What It Means">Your age</td>
+                                        <td data-label="Why Important">Older = insulin fails</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -333,18 +508,43 @@
                     <div class="risk-guide">
                         <h2>🎯 How to Read Your Results</h2>
                         <div class="risk-bars">
-                            <div class="risk-bar low"><div class="bar-fill" style="width: 30%"></div><span>0-30% ✅ LOW RISK</span><p>Continue healthy lifestyle</p></div>
-                            <div class="risk-bar moderate"><div class="bar-fill" style="width: 60%"></div><span>30-60% ⚠️ MODERATE</span><p>Doctor visit recommended</p></div>
-                            <div class="risk-bar high"><div class="bar-fill" style="width: 100%"></div><span>60-100% 🚨 HIGH RISK</span><p>Immediate medical attention</p></div>
+                            <div class="risk-bar low">
+                                <div class="bar-fill" style="width: 30%"></div><span>0-30% ✅ LOW RISK</span>
+                                <p>Continue healthy lifestyle</p>
+                            </div>
+                            <div class="risk-bar moderate">
+                                <div class="bar-fill" style="width: 60%"></div><span>30-60% ⚠️ MODERATE</span>
+                                <p>Doctor visit recommended</p>
+                            </div>
+                            <div class="risk-bar high">
+                                <div class="bar-fill" style="width: 100%"></div><span>60-100% 🚨 HIGH RISK</span>
+                                <p>Immediate medical attention</p>
+                            </div>
                         </div>
                     </div>
                     <div class="ai-explained">
                         <h3>🤖 How Our AI Works</h3>
                         <div class="ai-steps">
-                            <div class="step"><div class="step-number">1</div><h4>Input Data</h4><p>You enter clinical measurements</p></div>
-                            <div class="step"><div class="step-number">2</div><h4>Math Model</h4><p>Logistic regression (trained on 1000s patients)</p></div>
-                            <div class="step"><div class="step-number">3</div><h4>Risk Score</h4><p>AI calculates exact % probability</p></div>
-                            <div class="step"><div class="step-number">4</div><h4>Visual + Plan</h4><p>Pie chart + personalized actions</p></div>
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <h4>Input Data</h4>
+                                <p>You enter clinical measurements</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <h4>Math Model</h4>
+                                <p>Logistic regression (trained on 1000s patients)</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <h4>Risk Score</h4>
+                                <p>AI calculates exact % probability</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <h4>Visual + Plan</h4>
+                                <p>Pie chart + personalized actions</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -353,10 +553,12 @@
     </section>
 
     <script src="script.js"></script>
-</body>
+    </body>
+
 </html>
 
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
+
 </html>
