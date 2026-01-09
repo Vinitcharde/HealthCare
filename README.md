@@ -56,15 +56,15 @@ This project demonstrates a complete health risk prediction workflow, including:
 
 ## 🗂 Project Structure
 
-```text
 HealthCare/
-├── ML_model_envision.ipynb                  # Jupyter notebook: EDA + ML model
-├── diabetes.csv                             # Diabetes dataset
-├── heart_statlog_cleveland_hungary_final.csv  # Heart disease dataset
-├── index.html                               # Main web page
-├── script.js                                # Client-side logic / scoring
-├── style.css                                # Styling for the UI
-└── README.md                                # Project documentation
+│
+├── ML_model_envision.ipynb                     # Jupyter notebook: EDA & ML models
+├── diabetes.csv                                # Diabetes dataset
+├── heart_statlog_cleveland_hungary_final.csv   # Heart disease dataset
+├── index.html                                  # Main frontend page
+├── script.js                                   # Client-side logic (risk scoring)
+├── style.css                                   # UI styling
+└── README.md                                   # Project documentation
 
 ---
 
